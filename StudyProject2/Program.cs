@@ -2,14 +2,11 @@ using StudyApp2;
 
 var builder = WebApplication.CreateBuilder();
 
-builder.Services.AddTransient<ITimeService, ShortTimeService>();
+builder.Services.AddTransient<ICounter, RandomCounter>();
+builder.Services.AddTransient<CounterService>();
 
 var app = builder.Build();
 
-app.Run(async context =>
-{
-    var timeService = app.Services.GetService<ITimeService>();
-    await context.Response.WriteAsync($"Time: {timeService?.GetTime()}");
-});
+app.UseMiddleware<CounterMiddleware>();
 
 app.Run();
