@@ -1,12 +1,6 @@
-using StudyApp2;
-
-var builder = WebApplication.CreateBuilder();
-
-builder.Services.AddTransient<ICounter, RandomCounter>();
-builder.Services.AddTransient<CounterService>();
-
+var builder = WebApplication.CreateBuilder(args);
 var app = builder.Build();
 
-app.UseMiddleware<CounterMiddleware>();
+app.Map("/", (IConfiguration appConfig) => $"{appConfig["name"]} - {appConfig["age"]}");
 
 app.Run();
