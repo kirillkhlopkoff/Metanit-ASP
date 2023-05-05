@@ -1,6 +1,12 @@
-var builder = WebApplication.CreateBuilder(args);
+using StudyApp2;
+
+var builder = WebApplication.CreateBuilder();
 var app = builder.Build();
 
-app.Map("/", (IConfiguration appConfig) => $"{appConfig["name"]} - {appConfig["age"]}");
+builder.Configuration.AddJsonFile("person.json");
+var tom = new Person();
+app.Configuration.Bind(tom);    // связываем конфигурацию с объектом tom
+
+app.Run(async (context) => await context.Response.WriteAsync($"{tom.Name} - {tom.Age}"));
 
 app.Run();

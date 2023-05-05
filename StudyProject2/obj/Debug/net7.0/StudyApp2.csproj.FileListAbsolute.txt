@@ -24,3 +24,5 @@ D:\work\web\Metanit.ASP\StudyProject2\obj\Debug\net7.0\refint\StudyApp2.dll
 D:\work\web\Metanit.ASP\StudyProject2\obj\Debug\net7.0\StudyApp2.pdb
 D:\work\web\Metanit.ASP\StudyProject2\obj\Debug\net7.0\StudyApp2.genruntimeconfig.cache
 D:\work\web\Metanit.ASP\StudyProject2\obj\Debug\net7.0\ref\StudyApp2.dll
+D:\work\web\Metanit.ASP\StudyProject2\bin\Debug\net7.0\config.json
+D:\work\web\Metanit.ASP\StudyProject2\bin\Debug\net7.0\person.json
