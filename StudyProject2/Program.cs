@@ -1,10 +1,16 @@
+using StudyApp2;
+
 var builder = WebApplication.CreateBuilder();
+// устанавливаем файл для логгирования
+builder.Logging.AddFile(Path.Combine(Directory.GetCurrentDirectory(), "logger.txt"));
+// настройка логгирования с помошью свойства Logging идет до 
+// создания объекта WebApplication
 var app = builder.Build();
 
-app.Map("/hello", (ILogger<Program> logger) =>
+app.Run(async (context) =>
 {
-    logger.LogInformation($"Path: /hello  Time: {DateTime.Now.ToLongTimeString()}");
-    return "Hello World";
+    app.Logger.LogInformation($"Path: {context.Request.Path}  Time:{DateTime.Now.ToLongTimeString()}");
+    await context.Response.WriteAsync("Hello World!");
 });
 
 app.Run();
