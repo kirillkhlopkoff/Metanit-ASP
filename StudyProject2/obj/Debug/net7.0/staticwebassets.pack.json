@@ -1,0 +1,25 @@
+{
+  "Files": [
+    {
+      "Id": "D:\\work\\web\\Metanit.ASP\\StudyProject2\\wwwroot\\index.html",
+      "PackagePath": "staticwebassets\\index.html"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.StudyApp2.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.build.StudyApp2.props",
+      "PackagePath": "build\\StudyApp2.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildMultiTargeting.StudyApp2.props",
+      "PackagePath": "buildMultiTargeting\\StudyApp2.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildTransitive.StudyApp2.props",
+      "PackagePath": "buildTransitive\\StudyApp2.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

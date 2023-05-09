@@ -1,16 +1,66 @@
+// начальные данные
 using StudyApp2;
+using System.Xml.Linq;
+
+List<Person> users = new List<Person>
+{
+    new() { Id = Guid.NewGuid().ToString(), Name = "Tom", Age = 37 },
+    new() { Id = Guid.NewGuid().ToString(), Name = "Bob", Age = 41 },
+    new() { Id = Guid.NewGuid().ToString(), Name = "Sam", Age = 24 }
+};
 
 var builder = WebApplication.CreateBuilder();
-// устанавливаем файл дл€ логгировани€
-builder.Logging.AddFile(Path.Combine(Directory.GetCurrentDirectory(), "logger.txt"));
-// настройка логгировани€ с помошью свойства Logging идет до 
-// создани€ объекта WebApplication
 var app = builder.Build();
 
-app.Run(async (context) =>
+app.UseDefaultFiles();
+app.UseStaticFiles();
+
+app.MapGet("/api/users", () => users);
+
+app.MapGet("/api/users/{id}", (string id) =>
 {
-    app.Logger.LogInformation($"Path: {context.Request.Path}  Time:{DateTime.Now.ToLongTimeString()}");
-    await context.Response.WriteAsync("Hello World!");
+    // получаем пользовател€ по id
+    Person? user = users.FirstOrDefault(u => u.Id == id);
+    // если не найден, отправл€ем статусный код и сообщение об ошибке
+    if (user == null) return Results.NotFound(new { message = "ѕользователь не найден" });
+
+    // если пользователь найден, отправл€ем его
+    return Results.Json(user);
+});
+
+app.MapDelete("/api/users/{id}", (string id) =>
+{
+    // получаем пользовател€ по id
+    Person? user = users.FirstOrDefault(u => u.Id == id);
+
+    // если не найден, отправл€ем статусный код и сообщение об ошибке
+    if (user == null) return Results.NotFound(new { message = "ѕользователь не найден" });
+
+    // если пользователь найден, удал€ем его
+    users.Remove(user);
+    return Results.Json(user);
+});
+
+app.MapPost("/api/users", (Person user) => {
+
+    // устанавливаем id дл€ нового пользовател€
+    user.Id = Guid.NewGuid().ToString();
+    // добавл€ем пользовател€ в список
+    users.Add(user);
+    return user;
+});
+
+app.MapPut("/api/users", (Person userData) => {
+
+    // получаем пользовател€ по id
+    var user = users.FirstOrDefault(u => u.Id == userData.Id);
+    // если не найден, отправл€ем статусный код и сообщение об ошибке
+    if (user == null) return Results.NotFound(new { message = "ѕользователь не найден" });
+    // если пользователь найден, измен€ем его данные и отправл€ем обратно клиенту
+
+    user.Age = userData.Age;
+    user.Name = userData.Name;
+    return Results.Json(user);
 });
 
 app.Run();

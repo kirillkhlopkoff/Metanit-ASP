@@ -1,11 +1,37 @@
 {
   "Version": 1,
-  "Hash": "BjCGuyTYqYNmebYHeACt9ypDs9pzpy9lvIv1Pj3gALg=",
+  "Hash": "B1LV2KPTQ3It+KcuMbqnnFPdXFQa6NYR3BlVAjyHXms=",
   "Source": "StudyApp2",
   "BasePath": "_content/StudyApp2",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
-  "Assets": []
+  "DiscoveryPatterns": [
+    {
+      "Name": "StudyApp2\\wwwroot",
+      "Source": "StudyApp2",
+      "ContentRoot": "D:\\work\\web\\Metanit.ASP\\StudyProject2\\wwwroot\\",
+      "BasePath": "_content/StudyApp2",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "D:\\work\\web\\Metanit.ASP\\StudyProject2\\wwwroot\\index.html",
+      "SourceId": "StudyApp2",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\work\\web\\Metanit.ASP\\StudyProject2\\wwwroot\\",
+      "BasePath": "_content/StudyApp2",
+      "RelativePath": "index.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\index.html"
+    }
+  ]
 }
