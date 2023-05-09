@@ -36,7 +36,8 @@
         </tbody>
     </table>
 
-    <script>// Получение всех пользователей
+    <script>
+        // Получение всех пользователей
         async function getUsers() {
             // отправляет запрос и получаем ответ
             const response = await fetch("/api/users", {
@@ -129,8 +130,8 @@
         // сброс данных формы после отправки
         function reset() {
             document.getElementById("userId").value =
-            document.getElementById("userName").value =
-            document.getElementById("userAge").value = "";
+                document.getElementById("userName").value =
+                document.getElementById("userAge").value = "";
         }
         // создание строки для таблицы
         function row(user) {
@@ -150,7 +151,7 @@
 
             const editLink = document.createElement("button");
             editLink.append("Изменить");
-            editLink.addEventListener("click", async() => await getUser(user.id));
+            editLink.addEventListener("click", async () => await getUser(user.id));
             linksTd.append(editLink);
 
             const removeLink = document.createElement("button");
@@ -163,7 +164,7 @@
             return tr;
         }
         // сброс значений формы
-        document.getElementById("resetBtn").addEventListener("click", () =>  reset());
+        document.getElementById("resetBtn").addEventListener("click", () => reset());
 
         // отправка формы
         document.getElementById("saveBtn").addEventListener("click", async () => {
@@ -179,6 +180,7 @@
         });
 
         // загрузка пользователей
-        getUsers();</script>
+        getUsers();
+    </script>
 </body>
 </html>
